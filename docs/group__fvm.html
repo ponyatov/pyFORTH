@@ -65,26 +65,64 @@ $(function() {
 <div class="title">FORTH Virtual Machine</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>light stack virtual machine on top of Python runtime  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga7e8e890ab3c0d29973a72b6c257ac271"><td class="memItemLeft" align="right" valign="top"><a id="ga7e8e890ab3c0d29973a72b6c257ac271"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.PrintStack</b> ()</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fvm.html#ga7e8e890ab3c0d29973a72b6c257ac271">FORTH.PrintStack</a> ()</td></tr>
+<tr class="memdesc:ga7e8e890ab3c0d29973a72b6c257ac271"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>? ( -- )</code> print data stack <br /></td></tr>
 <tr class="separator:ga7e8e890ab3c0d29973a72b6c257ac271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaab4fdcc731145d57e80e215dc1cdcaac"><td class="memItemLeft" align="right" valign="top"><a id="gaab4fdcc731145d57e80e215dc1cdcaac"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.DumpStop</b> ()</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fvm.html#gaab4fdcc731145d57e80e215dc1cdcaac">FORTH.DumpStop</a> ()</td></tr>
+<tr class="memdesc:gaab4fdcc731145d57e80e215dc1cdcaac"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>?? ( -- )</code> print stack, vocabulary, and stop system <br /></td></tr>
 <tr class="separator:gaab4fdcc731145d57e80e215dc1cdcaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fvm.html#gaf9e4e336c02f5d4a2569566ac1209e17">FORTH.INTERPRET</a> (SRC)</td></tr>
+<tr class="memdesc:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>INTERPRET ( -- )</code> script interpreter  <a href="group__fvm.html#gaf9e4e336c02f5d4a2569566ac1209e17">More...</a><br /></td></tr>
+<tr class="separator:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga42e55a3830f289f9d3778d95e17640b9"><td class="memItemLeft" align="right" valign="top"><a id="ga42e55a3830f289f9d3778d95e17640b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.D</b> = <a class="el" href="classFORTH_1_1Stack.html">Stack</a>('DATA') ; print D</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fvm.html#ga42e55a3830f289f9d3778d95e17640b9">FORTH.D</a> = <a class="el" href="classFORTH_1_1Stack.html">Stack</a>('DATA')</td></tr>
+<tr class="memdesc:ga42e55a3830f289f9d3778d95e17640b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">data stack <br /></td></tr>
 <tr class="separator:ga42e55a3830f289f9d3778d95e17640b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae8f8bcca7ba7bcec91e5c43df9678241"><td class="memItemLeft" align="right" valign="top"><a id="gae8f8bcca7ba7bcec91e5c43df9678241"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.W</b> = <a class="el" href="classFORTH_1_1Voc.html">Voc</a>('FORTH') ; print W</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fvm.html#gae8f8bcca7ba7bcec91e5c43df9678241">FORTH.W</a> = <a class="el" href="classFORTH_1_1Voc.html">Voc</a>('FORTH')</td></tr>
+<tr class="memdesc:gae8f8bcca7ba7bcec91e5c43df9678241"><td class="mdescLeft">&#160;</td><td class="mdescRight">global vocabulary <br /></td></tr>
 <tr class="separator:gae8f8bcca7ba7bcec91e5c43df9678241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>light stack virtual machine on top of Python runtime </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaf9e4e336c02f5d4a2569566ac1209e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf9e4e336c02f5d4a2569566ac1209e17">&#9670;&nbsp;</a></span>INTERPRET()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def FORTH.INTERPRET </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>SRC</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>INTERPRET ( -- )</code> script interpreter </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SRC</td><td>source code string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

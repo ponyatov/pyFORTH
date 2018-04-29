@@ -2,6 +2,7 @@
 ## @brief Virtual py/FORTH Machine
 
 ## @defgroup sym Symbolic Class System
+## @brief object system for metaprogramming
 ## @{
 
 ## base object
@@ -26,40 +27,62 @@ class Voc(Container): pass
 ## @}
 
 ## @defgroup fvm FORTH Virtual Machine
+## @brief light stack virtual machine on top of Python runtime
 ## @{ 
 
-D = Stack('DATA') ; print D
-W = Voc('FORTH') ; print W
+## data stack
+D = Stack('DATA')
+## global vocabulary
+W = Voc('FORTH')
 
+## `? ( -- )` print data stack
 def PrintStack(): print D
 W['?'] = PrintStack
 
+## `?? ( -- )` print stack, vocabulary, and stop system
 def DumpStop(): PrintStack() ; WORDS() ; BYE()
 W['??'] = DumpStop
 
 ## @}
 
 ## @defgroup lexer Syntax Parser (lexer only)
+## @brief script parser using PLY library
 ## @{
 
 import ply.lex  as lex
 
+## token types supported by lexer
 tokens = ['SYM']
 
-def t_KEY(t):
+## new line rule increments line counter
+def t_newline(t):
+    r'\n'
+    t.lexer.lineno += 1
+
+## symbol token
+def t_SYM(t):
     r'[a-zA-Z0-9_]+'
     return t
 
+## lexer error callback
 def t_error(t): raise SyntaxError(t)
 
-lexer = [] # lexer stack allows nested .inc ludes
+## lexer stack allows nested .inc ludes
+lexer = []
 
-# @}
+## @}
 
-# interpreter
-# @ingroup fvm
+## `INTERPRET ( -- )` script interpreter
+## @ingroup fvm
+## @param[in] SRC source code string
 def INTERPRET(SRC):
-    pass
+    global lexer ; lexer += [lex.lex()] # allocate new lexer
+    lexer[-1].input(SRC)                # feed source code
+    while True:
+        token = lexer[-1].token()
+        if not token: break
+        print token
+    del lexer[-1]                       # drop finished lexer
 
 INTERPRET('''
 ''')

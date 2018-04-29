@@ -65,50 +65,34 @@ $(function() {
 <div class="title">Syntax Parser (lexer only)</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>script parser using PLY library  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga81adf99a3564590d695f3119bde74383"><td class="memItemLeft" align="right" valign="top"><a id="ga81adf99a3564590d695f3119bde74383"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.__init__</b> (self, V)</td></tr>
-<tr class="separator:ga81adf99a3564590d695f3119bde74383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga812200eb87109d6b6bb3075d3559ef02"><td class="memItemLeft" align="right" valign="top"><a id="ga812200eb87109d6b6bb3075d3559ef02"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.__repr__</b> (self)</td></tr>
-<tr class="separator:ga812200eb87109d6b6bb3075d3559ef02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga19a37d5de5e1474df84ebbfd19b20b3c"><td class="memItemLeft" align="right" valign="top"><a id="ga19a37d5de5e1474df84ebbfd19b20b3c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.__setitem__</b> (self, K, V)</td></tr>
-<tr class="separator:ga19a37d5de5e1474df84ebbfd19b20b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga23e11bcedc72f60b469ac617c057726b"><td class="memItemLeft" align="right" valign="top"><a id="ga23e11bcedc72f60b469ac617c057726b"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.t_KEY</b> (t)</td></tr>
-<tr class="separator:ga23e11bcedc72f60b469ac617c057726b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0d52205c97c9b0ae35037ae9d04c367"><td class="memItemLeft" align="right" valign="top"><a id="gac0d52205c97c9b0ae35037ae9d04c367"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lexer.html#gac0d52205c97c9b0ae35037ae9d04c367">FORTH.t_SYM</a> (t)</td></tr>
+<tr class="memdesc:gac0d52205c97c9b0ae35037ae9d04c367"><td class="mdescLeft">&#160;</td><td class="mdescRight">symbol token <br /></td></tr>
+<tr class="separator:gac0d52205c97c9b0ae35037ae9d04c367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2baf4c0a64b91ef7c64e999b2c20bebe"><td class="memItemLeft" align="right" valign="top"><a id="ga2baf4c0a64b91ef7c64e999b2c20bebe"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.t_error</b> (t)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lexer.html#ga2baf4c0a64b91ef7c64e999b2c20bebe">FORTH.t_error</a> (t)</td></tr>
+<tr class="memdesc:ga2baf4c0a64b91ef7c64e999b2c20bebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">lexer error callback <br /></td></tr>
 <tr class="separator:ga2baf4c0a64b91ef7c64e999b2c20bebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="memItemLeft" align="right" valign="top"><a id="gaf9e4e336c02f5d4a2569566ac1209e17"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.INTERPRET</b> (SRC)</td></tr>
-<tr class="separator:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gacd80c070233b371cade128f7cb453563"><td class="memItemLeft" align="right" valign="top"><a id="gacd80c070233b371cade128f7cb453563"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.tag</b></td></tr>
-<tr class="separator:gacd80c070233b371cade128f7cb453563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga577f804a9c5eadbe4ec0cf03da55f4b1"><td class="memItemLeft" align="right" valign="top"><a id="ga577f804a9c5eadbe4ec0cf03da55f4b1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.val</b></td></tr>
-<tr class="separator:ga577f804a9c5eadbe4ec0cf03da55f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga48975d334a6a7bb453baba269a2dd4d7"><td class="memItemLeft" align="right" valign="top"><a id="ga48975d334a6a7bb453baba269a2dd4d7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.next</b></td></tr>
-<tr class="separator:ga48975d334a6a7bb453baba269a2dd4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga097459994d452d3f904fbe66c11c5fbe"><td class="memItemLeft" align="right" valign="top"><a id="ga097459994d452d3f904fbe66c11c5fbe"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.Object.attr</b></td></tr>
-<tr class="separator:ga097459994d452d3f904fbe66c11c5fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf6d4680a1b125b55aacec4ed6f062072"><td class="memItemLeft" align="right" valign="top"><a id="gaf6d4680a1b125b55aacec4ed6f062072"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.tokens</b> = ['SYM']</td></tr>
+list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lexer.html#gaf6d4680a1b125b55aacec4ed6f062072">FORTH.tokens</a> = ['SYM']</td></tr>
+<tr class="memdesc:gaf6d4680a1b125b55aacec4ed6f062072"><td class="mdescLeft">&#160;</td><td class="mdescRight">token types supported by lexer <br /></td></tr>
 <tr class="separator:gaf6d4680a1b125b55aacec4ed6f062072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6165c96f0671665ad573df97cebd6ca6"><td class="memItemLeft" align="right" valign="top"><a id="ga6165c96f0671665ad573df97cebd6ca6"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.lexer</b> = []</td></tr>
+list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lexer.html#ga6165c96f0671665ad573df97cebd6ca6">FORTH.lexer</a> = []</td></tr>
+<tr class="memdesc:ga6165c96f0671665ad573df97cebd6ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">lexer stack allows nested .inc ludes <br /></td></tr>
 <tr class="separator:ga6165c96f0671665ad573df97cebd6ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>script parser using PLY library </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
