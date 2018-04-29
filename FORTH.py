@@ -1,6 +1,8 @@
 ## @file
 ## @brief Virtual py/FORTH Machine
 
+import sys
+
 ## @defgroup sym Symbolic Class System
 ## @brief object system for metaprogramming
 ## @{
@@ -84,5 +86,9 @@ def INTERPRET(SRC):
         print token
     del lexer[-1]                       # drop finished lexer
 
-INTERPRET('''
-''')
+if __name__ == '__main__':
+    try:
+        SRC = open(sys.argv[1]).read()
+    except IndexError:
+        SRC = open('src.src').read()
+    INTERPRET(SRC)
