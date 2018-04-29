@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>py/FORTH: Symbolic Class System</title>
+<title>py/FORTH: FORTH.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -42,7 +42,6 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -57,13 +56,19 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Symbolic Class System</div>  </div>
+<div class="title">FORTH.py File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Virtual py/FORTH Machine.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -79,9 +84,43 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFORTH_1_1Voc.html">FORTH.Voc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vocabulary (associative array)  <a href="classFORTH_1_1Voc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga7e8e890ab3c0d29973a72b6c257ac271"><td class="memItemLeft" align="right" valign="top">
+def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.PrintStack</b> ()</td></tr>
+<tr class="separator:ga7e8e890ab3c0d29973a72b6c257ac271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab4fdcc731145d57e80e215dc1cdcaac"><td class="memItemLeft" align="right" valign="top">
+def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.DumpStop</b> ()</td></tr>
+<tr class="separator:gaab4fdcc731145d57e80e215dc1cdcaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23e11bcedc72f60b469ac617c057726b"><td class="memItemLeft" align="right" valign="top">
+def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.t_KEY</b> (t)</td></tr>
+<tr class="separator:ga23e11bcedc72f60b469ac617c057726b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2baf4c0a64b91ef7c64e999b2c20bebe"><td class="memItemLeft" align="right" valign="top">
+def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.t_error</b> (t)</td></tr>
+<tr class="separator:ga2baf4c0a64b91ef7c64e999b2c20bebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="memItemLeft" align="right" valign="top">
+def&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.INTERPRET</b> (SRC)</td></tr>
+<tr class="separator:gaf9e4e336c02f5d4a2569566ac1209e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga42e55a3830f289f9d3778d95e17640b9"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.D</b> = Stack('DATA') ; print D</td></tr>
+<tr class="separator:ga42e55a3830f289f9d3778d95e17640b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8f8bcca7ba7bcec91e5c43df9678241"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.W</b> = Voc('FORTH') ; print W</td></tr>
+<tr class="separator:gae8f8bcca7ba7bcec91e5c43df9678241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6d4680a1b125b55aacec4ed6f062072"><td class="memItemLeft" align="right" valign="top">
+list&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.tokens</b> = ['SYM']</td></tr>
+<tr class="separator:gaf6d4680a1b125b55aacec4ed6f062072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6165c96f0671665ad573df97cebd6ca6"><td class="memItemLeft" align="right" valign="top">
+list&#160;</td><td class="memItemRight" valign="bottom"><b>FORTH.lexer</b> = []</td></tr>
+<tr class="separator:ga6165c96f0671665ad573df97cebd6ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-</div><!-- contents -->
+<div class="textblock"><p>Virtual py/FORTH Machine. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
