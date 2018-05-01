@@ -179,7 +179,7 @@ def INTERPRET(SRC):
 ## @brief GUI subsystem
 ## @{
 
-import wx
+import wx,wx.stc
 import threading
 
 ## GUI thread
@@ -190,6 +190,7 @@ class GUI_thread(threading.Thread):
         self.app = wx.App()
         ## main window
         self.frame = wx.Frame(None,wx.ID_ANY,str(sys.argv))
+        ## menu
         self.menubar = wx.MenuBar()
         ## file menu
         self.file = wx.Menu()
@@ -200,8 +201,13 @@ class GUI_thread(threading.Thread):
         ## help menu
         self.help = wx.Menu()
         self.menubar.Append(self.help,'&Help')
-        ## help/about
+        # help/about
         self.help.Append(wx.ID_ABOUT,'&About\tF1')
+        ## command console/editor
+        self.console = wx.stc.StyledTextCtrl(self.frame)
+        # set zoom in/out keys
+        self.console.CmdKeyAssign(ord('='),wx.stc.STC_SCMOD_CTRL,wx.stc.STC_CMD_ZOOMIN)
+        self.console.CmdKeyAssign(ord('-'),wx.stc.STC_SCMOD_CTRL,wx.stc.STC_CMD_ZOOMOUT)
     def run(self):
         self.frame.SetMenuBar(self.menubar)
         self.frame.Show()
