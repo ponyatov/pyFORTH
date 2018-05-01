@@ -177,40 +177,74 @@ def INTERPRET(SRC):
 
 ## @defgroup gui GUI
 ## @brief GUI subsystem
-## @{
 
-import wx,wx.stc
+## @defgroup gl OpenGL
+## @brief Accelerated OpenGL graphics
+## @ingroup gui
+
+import wx, wx.stc, wx.glcanvas
 import threading
 
 ## GUI thread
+## @ingroup gui
 class GUI_thread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         ## wx application
         self.app = wx.App()
         ## main window
-        self.frame = wx.Frame(None,wx.ID_ANY,str(sys.argv))
+        self.main = wx.Frame(None,wx.ID_ANY,str(sys.argv))
         ## menu
         self.menubar = wx.MenuBar()
         ## file menu
         self.file = wx.Menu()
         self.menubar.Append(self.file,'&File')
+        ## file/new
+        self.new = self.file.Append(wx.ID_NEW,'&New')
+        ## file/open
+        self.open = self.file.Append(wx.ID_OPEN,'&Open')
+        ## file/save
+        self.save = self.file.Append(wx.ID_SAVE,'&Save')
+        ## file/save as
+        self.saveas = self.file.Append(wx.ID_SAVEAS,'Save &ass')
+        ## file/close
+        self.close = self.file.Append(wx.ID_CLOSE,'&Close') 
         ## file/exit
+        self.file.AppendSeparator()
         self.exit = self.file.Append(wx.ID_EXIT,'E&xit')
-        self.frame.Bind(wx.EVT_MENU, lambda e:self.frame.Close(), self.exit)
+        self.main.Bind(wx.EVT_MENU, self.onClose, self.exit)
         ## help menu
         self.help = wx.Menu()
         self.menubar.Append(self.help,'&Help')
         # help/about
         self.help.Append(wx.ID_ABOUT,'&About\tF1')
         ## command console/editor
-        self.console = wx.stc.StyledTextCtrl(self.frame)
+        self.console = wx.stc.StyledTextCtrl(self.main)
         # set zoom in/out keys
         self.console.CmdKeyAssign(ord('='),wx.stc.STC_SCMOD_CTRL,wx.stc.STC_CMD_ZOOMIN)
         self.console.CmdKeyAssign(ord('-'),wx.stc.STC_SCMOD_CTRL,wx.stc.STC_CMD_ZOOMOUT)
+        # enable line numbering
+        self.console.SetMarginType(1,wx.stc.STC_MARGIN_NUMBER)
+        # set numbering bar width (in pixels)
+        self.console.SetMarginWidth(1,32)
+        ## OpenGL window
+        ## @ingroup gl
+        self.glw = wx.Frame(None,wx.ID_ANY,'GL',size=(320,240))
+        ## OpenGL canvas
+        ## @ingroup gl
+        self.gl = wx.glcanvas.GLCanvas(self.glw,size=(64,64))
+        ## OpenGL context
+        ## @ingroup gl
+        self.gl.context = wx.glcanvas.GLContext(self.gl)
+    ## process app close event
+    def onClose(self,e):
+        self.glw.Close()
+        self.main.Close()
     def run(self):
-        self.frame.SetMenuBar(self.menubar)
-        self.frame.Show()
+        self.main.SetMenuBar(self.menubar)
+        self.main.Show()
+        self.glw.Show()
+        self.gl.SetCurrent(self.gl.context)
         self.app.MainLoop()
 ## singleton thread process all GUI events
 gui_thread = GUI_thread()

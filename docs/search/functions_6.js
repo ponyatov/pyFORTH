@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['head',['head',['../classFORTH_1_1Object.html#ae94e41bca173872d1fb145ec704b2526',1,'FORTH::Object']]]
+  ['interpret',['INTERPRET',['../group__compiler.html#gaa95aebf70bfed48fb9033b87a04e2151',1,'FORTH']]]
 ];
