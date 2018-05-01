@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['onclose',['onClose',['../classFORTH_1_1GUI__thread.html#a36f616ec807091bcddeae8731ecb93ac',1,'FORTH::GUI_thread']]]
+  ['onclose',['onClose',['../classFORTH_1_1GUI__thread.html#a36f616ec807091bcddeae8731ecb93ac',1,'FORTH::GUI_thread']]],
+  ['onnew',['OnNew',['../classFORTH_1_1GUI__thread.html#a2dfae34259a3b673d6dbe7b0c20910dd',1,'FORTH::GUI_thread']]],
+  ['onopen',['OnOpen',['../classFORTH_1_1GUI__thread.html#a71660d45917bce0b848ba48e9d579a4f',1,'FORTH::GUI_thread']]]
 ];

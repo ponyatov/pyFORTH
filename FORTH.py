@@ -207,8 +207,10 @@ class GUI_thread(threading.Thread):
         self.menubar.Append(self.file,'&File')
         ## file/new
         self.new = self.file.Append(wx.ID_NEW,'&New')
+        self.main.Bind(wx.EVT_MENU,self.OnNew,self.new)
         ## file/open
         self.open = self.file.Append(wx.ID_OPEN,'&Open')
+        self.main.Bind(wx.EVT_MENU,self.OnOpen,self.open)
         ## file/save
         self.save = self.file.Append(wx.ID_SAVE,'&Save')
         ## file/save as
@@ -233,9 +235,22 @@ class GUI_thread(threading.Thread):
         self.console.SetMarginType(1,wx.stc.STC_MARGIN_NUMBER)
         # set numbering bar width (in pixels)
         self.console.SetMarginWidth(1,32)
+        self.console.SetMargins(5,5)
     ## process app close event
     def onClose(self,e):
         self.main.Close()
+    ## new file
+    def OnNew(self,e):
+        self.console.SetValue('')   # clear editor
+    ## open file
+    def OnOpen(self,e):
+        fd = wx.FileDialog(self.main,'Open',
+                           wildcard='Script (*.src;*.4th)|*.src;*.4th|All|*.*',
+                           style=wx.FD_OPEN|wx.FD_FILE_MUST_EXIST)
+        if (fd.ShowModal() == wx.ID_OK):
+            F = open(fd.GetFilename())
+            self.console.SetValue(F.read())
+            F.close()
     ## activate GUI thread
     def run(self):
         # main window
