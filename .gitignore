@@ -3,3 +3,4 @@
 *.exe
 *.o
 *.log
+doxygen_sqlite3.db

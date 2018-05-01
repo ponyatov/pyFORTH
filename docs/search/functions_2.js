@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['printstack',['PrintStack',['../group__fvm.html#ga7e8e890ab3c0d29973a72b6c257ac271',1,'FORTH']]]
+  ['dump',['dump',['../classFORTH_1_1Object.html#a01cd7518216823e487edfc033c38930a',1,'FORTH::Object']]],
+  ['dumpstop',['DumpStop',['../group__fvm.html#ga544839f6369a08a528e3ea1d302a84bd',1,'FORTH']]]
 ];
