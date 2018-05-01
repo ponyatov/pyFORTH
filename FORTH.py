@@ -187,32 +187,8 @@ def INTERPRET(SRC):
 ## @defgroup gui GUI
 ## @brief GUI subsystem
 
-## @defgroup gl OpenGL
-## @brief Accelerated OpenGL graphics
-## @ingroup gui
-
 import wx, wx.stc
 import threading
-# OpenGL
-import wx.glcanvas
-from OpenGL.GL import *
-
-## OpenGL canvas
-## @ingroup gl
-class GUI_canvas(wx.glcanvas.GLCanvas):
-    ## create GL canvas
-    def __init__(self,parent):
-        wx.glcanvas.GLCanvas.__init__(self,parent,wx.ID_ANY,size=(64,32))
-        ## OpenGL context
-        self.context = wx.glcanvas.GLContext(self)
-        # bind paint event to drawer
-        self.Bind(wx.EVT_PAINT,self.OnDraw)
-    ## process GL draw event
-    def OnDraw(self,e):
-        self.SetCurrent(self.context)
-        glClearColor(.1,.2,.3,1)
-        glClear(GL_COLOR_BUFFER_BIT)
-        self.SwapBuffers()
 
 ## GUI thread
 ## @ingroup gui
@@ -257,23 +233,14 @@ class GUI_thread(threading.Thread):
         self.console.SetMarginType(1,wx.stc.STC_MARGIN_NUMBER)
         # set numbering bar width (in pixels)
         self.console.SetMarginWidth(1,32)
-        ## OpenGL window
-        ## @ingroup gl
-        self.glw = wx.Frame(self.main,wx.ID_ANY,'GL',size=(320,240))
-        ## OpenGL canvas
-        ## @ingroup gl
-        self.glw.canvas = GUI_canvas(self.glw)
     ## process app close event
     def onClose(self,e):
-        self.glw.Close()
         self.main.Close()
     ## activate GUI thread
     def run(self):
         # main window
         self.main.SetMenuBar(self.menubar)
         self.main.Show()
-        # gl window
-        self.glw.Show()
         # GUI loop
         self.app.MainLoop()
 ## singleton thread process all GUI events
