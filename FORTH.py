@@ -191,8 +191,28 @@ def INTERPRET(SRC):
 ## @brief Accelerated OpenGL graphics
 ## @ingroup gui
 
-import wx, wx.stc, wx.glcanvas
+import wx, wx.stc
 import threading
+# OpenGL
+import wx.glcanvas
+from OpenGL.GL import *
+
+## OpenGL canvas
+## @ingroup gl
+class GUI_canvas(wx.glcanvas.GLCanvas):
+    ## create GL canvas
+    def __init__(self,parent):
+        wx.glcanvas.GLCanvas.__init__(self,parent,wx.ID_ANY,size=(64,32))
+        ## OpenGL context
+        self.context = wx.glcanvas.GLContext(self)
+        # bind paint event to drawer
+        self.Bind(wx.EVT_PAINT,self.OnDraw)
+    ## process GL draw event
+    def OnDraw(self,e):
+        self.SetCurrent(self.context)
+        glClearColor(.1,.2,.3,1)
+        glClear(GL_COLOR_BUFFER_BIT)
+        self.SwapBuffers()
 
 ## GUI thread
 ## @ingroup gui
@@ -239,13 +259,10 @@ class GUI_thread(threading.Thread):
         self.console.SetMarginWidth(1,32)
         ## OpenGL window
         ## @ingroup gl
-        self.glw = wx.Frame(None,wx.ID_ANY,'GL',size=(320,240))
+        self.glw = wx.Frame(self.main,wx.ID_ANY,'GL',size=(320,240))
         ## OpenGL canvas
         ## @ingroup gl
-        self.gl = wx.glcanvas.GLCanvas(self.glw,size=(64,64))
-        ## OpenGL context
-        ## @ingroup gl
-        self.gl.context = wx.glcanvas.GLContext(self.gl)
+        self.glw.canvas = GUI_canvas(self.glw)
     ## process app close event
     def onClose(self,e):
         self.glw.Close()
@@ -257,7 +274,6 @@ class GUI_thread(threading.Thread):
         self.main.Show()
         # gl window
         self.glw.Show()
-        self.gl.SetCurrent(self.gl.context)
         # GUI loop
         self.app.MainLoop()
 ## singleton thread process all GUI events
