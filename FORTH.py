@@ -16,8 +16,14 @@ class Object:
     ## @returns object in `<T:V>` form: class/type tag, and single value
     ## @returns but any object able to work as universal constructor`
     def __init__(self, V):
-        self.tag = self.__class__.__name__.lower() ; self.val = V
-        self.nest = [] ; self.attr = {}
+        ## class/type tag
+        self.tag = self.__class__.__name__.lower()
+        ## single object value
+        self.val = V
+        ## `nest[]`ed elements /ordered/
+        self.nest = []
+        ## `attr{}`ibutes /associative, unordered/
+        self.attr = {}
     ## represent in string form
     def __repr__(self): return self.dump()
     ## dump object in tree form
@@ -62,16 +68,19 @@ class Stack(Container): pass
     
 ## Vocabulary (associative array)
 class Voc(Container):
+    ## operator `<<` will push function to `attr{}`ibutes area
     def __lshift__(self,o):
         self.attr[o.__name__] = Fn(o)
         
 ## elements with execution semantics
 class Active(Object): pass
 
+## function wrapped from VM
 class Fn(Active):
     ## @param[in] F function written in Python
     def __init__(self,F):
         Active.__init__(self,F.__name__)
+        ## store pointer to function being executed
         self.fn = F
     ## execution semantics implements via function call
     def __call__(self):
@@ -188,6 +197,7 @@ import threading
 ## GUI thread
 ## @ingroup gui
 class GUI_thread(threading.Thread):
+    ## construct (single) GUI thread
     def __init__(self):
         threading.Thread.__init__(self)
         ## wx application
@@ -240,11 +250,15 @@ class GUI_thread(threading.Thread):
     def onClose(self,e):
         self.glw.Close()
         self.main.Close()
+    ## activate GUI thread
     def run(self):
+        # main window
         self.main.SetMenuBar(self.menubar)
         self.main.Show()
+        # gl window
         self.glw.Show()
         self.gl.SetCurrent(self.gl.context)
+        # GUI loop
         self.app.MainLoop()
 ## singleton thread process all GUI events
 gui_thread = GUI_thread()
@@ -257,6 +271,8 @@ W << GUI
 
 if __name__ == '__main__':
     try:
+        ## source code of init file from command line
+        ## (or `src.src` if not given)
         SRC = open(sys.argv[1]).read()
     except IndexError:
         SRC = open('src.src').read()

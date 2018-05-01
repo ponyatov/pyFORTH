@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$classFORTH_1_1Active.html" title="elements with execution semantics " alt="" coords="5,80,115,107"/>
 <area shape="rect" id="node4" href="$classFORTH_1_1Container.html" title="data container " alt="" coords="157,80,285,107"/>
 <area shape="rect" id="node7" href="$classFORTH_1_1Primitive.html" title="primitive " alt="" coords="347,80,469,107"/>
-<area shape="rect" id="node3" href="$classFORTH_1_1Fn.html" title="FORTH.Fn" alt="" coords="7,155,94,181"/>
+<area shape="rect" id="node3" href="$classFORTH_1_1Fn.html" title="function wrapped from VM " alt="" coords="7,155,94,181"/>
 <area shape="rect" id="node5" href="$classFORTH_1_1Stack.html" title="LIFO stack. " alt="" coords="119,155,225,181"/>
 <area shape="rect" id="node6" href="$classFORTH_1_1Voc.html" title="Vocabulary (associative array) " alt="" coords="250,155,345,181"/>
 <area shape="rect" id="node8" href="$classFORTH_1_1Sym.html" title="symbol " alt="" coords="369,155,468,181"/>
