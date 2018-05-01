@@ -207,10 +207,10 @@ class GUI_thread(threading.Thread):
         self.menubar.Append(self.file,'&File')
         ## file/new
         self.new = self.file.Append(wx.ID_NEW,'&New')
-        self.main.Bind(wx.EVT_MENU,self.OnNew,self.new)
+        self.main.Bind(wx.EVT_MENU,self.onNew,self.new)
         ## file/open
         self.open = self.file.Append(wx.ID_OPEN,'&Open')
-        self.main.Bind(wx.EVT_MENU,self.OnOpen,self.open)
+        self.main.Bind(wx.EVT_MENU,self.onOpen,self.open)
         ## file/save
         self.save = self.file.Append(wx.ID_SAVE,'&Save')
         ## file/save as
@@ -225,7 +225,8 @@ class GUI_thread(threading.Thread):
         self.help = wx.Menu()
         self.menubar.Append(self.help,'&Help')
         # help/about
-        self.help.Append(wx.ID_ABOUT,'&About\tF1')
+        self.about = self.help.Append(wx.ID_ABOUT,'&About\tF1')
+        self.main.Bind(wx.EVT_MENU,self.onAbout,self.about)
         ## command console/editor
         self.console = wx.stc.StyledTextCtrl(self.main)
         # set zoom in/out keys
@@ -240,10 +241,10 @@ class GUI_thread(threading.Thread):
     def onClose(self,e):
         self.main.Close()
     ## new file
-    def OnNew(self,e):
+    def onNew(self,e):
         self.console.SetValue('')   # clear editor
     ## open file
-    def OnOpen(self,e):
+    def onOpen(self,e):
         fd = wx.FileDialog(self.main,'Open',
                            wildcard='Script (*.src;*.4th)|*.src;*.4th|All|*.*',
                            style=wx.FD_OPEN|wx.FD_FILE_MUST_EXIST)
@@ -251,6 +252,10 @@ class GUI_thread(threading.Thread):
             F = open(fd.GetFilename())
             self.console.SetValue(F.read())
             F.close()
+        fd.Destroy()
+    ## about
+    def onAbout(self,e):
+        F = open('README.md') ; wx.MessageBox(F.read()) ; F.close()
     ## activate GUI thread
     def run(self):
         # main window
